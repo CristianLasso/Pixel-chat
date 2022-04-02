@@ -1,0 +1,41 @@
+.background {
+  background-color: #282845;
+  color: #282845;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  background-color: #9A9AC6;
+  border: 20px solid #282845;
+  box-shadow: 10;
+  padding: 4;
+}
+
+.title {
+  text-align: center;
+  padding: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.input {
+  margin-top: 5;
+  padding-top: 60px;
+  width: 50%;
+  max-width: 60%;
+  color: #282845;
+}
+
+.button {
+  height: 50px;
+  width: 30%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
