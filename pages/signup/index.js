@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../../styles/Register.module.css';
+import styles from '../../styles/Signup.module.css';
 import { styled } from '@mui/material/styles';
 
 import Typography from '@mui/material/Typography';
@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 
-export default function Register() {
+export default function Signup() {
 
   const CssTextField = styled(TextField)({
     '& label.Mui-focused': {
@@ -67,7 +67,7 @@ export default function Register() {
               <Box className={styles.input}>
                 <CssTextField fullWidth type='password' label='Confirmar contraseña' />
               </Box>
-              <Link href="/home/Chat">
+              <Link href="/chat">
                 <ColorButton className={styles.button} variant="contained">Registrarme</ColorButton>
               </Link>
               <p>Ya tenías una cuenta? <Link href="/">Inicia sesión</Link> </p>

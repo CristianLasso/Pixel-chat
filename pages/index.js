@@ -55,7 +55,7 @@ export default function Login() {
               <Box className={styles.input}>
                 <CssTextField fullWidth type='password' label='Contraseña' />
               </Box>
-              <Link href="/home/Chat">
+              <Link href="/chat">
                 <ColorButton className={styles.button} variant="contained">Iniciar Sesión</ColorButton>
               </Link> 
               <p>No tienes una cuenta? <Link href="/register">Registrate aquí</Link> </p>
