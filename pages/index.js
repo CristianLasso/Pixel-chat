@@ -58,7 +58,7 @@ export default function Login() {
               <Link href="/chat">
                 <ColorButton className={styles.button} variant="contained">Iniciar Sesión</ColorButton>
               </Link> 
-              <p>No tienes una cuenta? <Link href="/register">Registrate aquí</Link> </p>
+              <p>No tienes una cuenta? <Link href="/signup">Registrate aquí</Link> </p>
             </form>
             <div/>
           </Box>
