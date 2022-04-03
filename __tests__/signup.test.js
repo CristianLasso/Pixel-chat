@@ -9,18 +9,18 @@ describe('Signup', () => {
 
   it('renders the form', () => {
 
-    const name = screen.getByPlaceholderText(/Nombre/i)
-    const lastname = screen.getByPlaceholderText(/Apellido/i)
-    const username = screen.getByPlaceholderText(/Nombre de usuario/i)
-    const email = screen.getByPlaceholderText(/Email/i)
-    const password = screen.getByPlaceholderText(/Contraseña/i)
+    const name = screen.getAllByPlaceholderText(/Nombre/i)
+    const lastname = screen.getAllByPlaceholderText(/Apellido/i)
+    const username = screen.getAllByPlaceholderText(/Nombre de usuario/i)
+    const email = screen.getAllByPlaceholderText(/Email/i)
+    const password = screen.getAllByPlaceholderText(/Contraseña/i)
     const button = screen.getByText(/Registrarme/i)
 
-    expect(name).toBeInTheDocument()
-    expect(lastname).toBeInTheDocument()
-    expect(username).toBeInTheDocument()
-    expect(email).toBeInTheDocument()
-    expect(password).toBeInTheDocument()
+    expect(name[0]).toBeInTheDocument()
+    expect(lastname[0]).toBeInTheDocument()
+    expect(username[0]).toBeInTheDocument()
+    expect(email[0]).toBeInTheDocument()
+    expect(password[0]).toBeInTheDocument()
     expect(button).toBeInTheDocument()
   }),
 
@@ -32,17 +32,17 @@ describe('Signup', () => {
   })
 
   it('allows user to type in the form', () => {
-    const name = screen.getByPlaceholderText(/Nombre/i)
-    const lastname = screen.getByPlaceholderText(/Apellido/i)
-    const username = screen.getByPlaceholderText(/Nombre de usuario/i)
-    const email = screen.getByPlaceholderText(/Email/i)
-    const password = screen.getByPlaceholderText(/Contraseña/i)
+    const name = screen.getAllByPlaceholderText(/Nombre/i)
+    const lastname = screen.getAllByPlaceholderText(/Apellido/i)
+    const username = screen.getAllByPlaceholderText(/Nombre de usuario/i)
+    const email = screen.getAllByPlaceholderText(/Email/i)
+    const password = screen.getAllByPlaceholderText(/Contraseña/i)
 
-    userEvent.type(name, 'cristian')
-    userEvent.type(lastname, 'lasso')
-    userEvent.type(username, 'cristian')
-    userEvent.type(email, 'example@gmail.com')
-    userEvent.type(password, '123456')
+    userEvent.type(name[0], 'cristian')
+    userEvent.type(lastname[0], 'lasso')
+    userEvent.type(username[0], 'cristian')
+    userEvent.type(email[0], 'example@gmail.com')
+    userEvent.type(password[0], '123456')
   })
 
   it('allows user to click the button', () => {

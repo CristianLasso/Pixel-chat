@@ -27,7 +27,7 @@ const Login = () => {
   } 
 
   const handleClick = async () =>{
-    authState.login(username, password);
+    await authState.login(username, password);
     console.log('Usuario: ' + username + ' contraseña: ' + password);
   }
 

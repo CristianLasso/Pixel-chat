@@ -1,3 +1,4 @@
+import React, { useState, useContext} from 'react';
 import Link from 'next/link'
 import styles from '../../styles/Signup.module.css';
 import { styled } from '@mui/material/styles';
@@ -8,14 +9,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 
-import { useAuth } from '../../context/AuthContext';
+import AuthContext from "../../context/AuthContext";
 
 const Signup = () => {
 
-  const { signup } = useAuth();
+  const authState = useContext(AuthContext);
 
   const handleSignup = async () =>{
-    await signup();
+    await authState.signup();
   }
 
   const CssTextField = styled(TextField)({
@@ -58,22 +59,22 @@ const Signup = () => {
           <Box>
             <form className={styles.form}>
               <Box className={styles.input}>
-                <CssTextField fullWidth type='name' label='Nombre' />
+                <CssTextField fullWidth type='name' label='Nombre' placeholder='Nombre' />
               </Box>
               <Box className={styles.input}>
-                <CssTextField fullWidth type='lastname' label='Apellido' />
+                <CssTextField fullWidth type='lastname' label='Apellido' placeholder='Apellido' />
               </Box>
               <Box className={styles.input}>
-                <CssTextField fullWidth type='username' label='Nombre de usuario' />
+                <CssTextField fullWidth type='username' label='Nombre de usuario' placeholder='Nombre de usuario' />
               </Box>
               <Box className={styles.input}>
-                <CssTextField fullWidth type='email' label='Email' />
+                <CssTextField fullWidth type='email' label='Email' placeholder='Email' />
               </Box>
               <Box className={styles.input}>
-                <CssTextField fullWidth type='password' label='Contraseña' />
+                <CssTextField fullWidth type='password' label='Contraseña' placeholder='Contraseña' />
               </Box>
               <Box className={styles.input}>
-                <CssTextField fullWidth type='password' label='Confirmar contraseña' />
+                <CssTextField fullWidth type='password' label='Confirmar contraseña' placeholder='Confirmar contraseña' />
               </Box>
               <Link href="/chat">
                 <ColorButton className={styles.button} variant="contained" onClick={handleSignup}>Registrarme</ColorButton>

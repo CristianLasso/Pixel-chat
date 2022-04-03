@@ -8,7 +8,7 @@ export const AuthProvider = (props) => {
 
   const [currentUser, setCurrentUser] = useState(false);
 
-  const signup = (name, lastname, username, email, password, confirmationPassword) => {
+  const signup = () => {
     setCurrentUser(true)
   }
 
