@@ -1,21 +1,18 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext} from 'react';
 import Link from 'next/link'
 import styles from '../styles/Login.module.css';
-import { styled } from '@mui/material/styles';
 
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import InputBase from '@mui/material/InputBase';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 
-import { useAuth } from '../context/AuthContext';
+import AuthContext from "../context/AuthContext";
 
-export default function Login() {
+const Login = () => {
 
-  const { login } = useAuth();
-  const { currentUser } = useAuth();
+  const authState = useContext(AuthContext);
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -30,7 +27,7 @@ export default function Login() {
   } 
 
   const handleClick = async () =>{
-    login(username, password);
+    authState.login(username, password);
     console.log('Usuario: ' + username + ' contraseña: ' + password);
   }
 
@@ -64,3 +61,4 @@ export default function Login() {
         
   )
 }
+export default Login

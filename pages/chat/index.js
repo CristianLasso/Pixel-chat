@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link'
 import styles from '../../styles/Chat.module.css';
 
@@ -11,15 +11,15 @@ import TextMessage from '../../components/TextMessage';
 
 import Button from '@mui/material/Button';
 
-import { useAuth } from '../../context/AuthContext';
+import AuthContext from "../../context/AuthContext";
 
-export default function Chat() {
+const Chat = () => {
 
-  const { currentUser } = useAuth();
+  const authState = useContext(AuthContext);
 
   return (
     <div>
-      { currentUser ?
+      { authState.currentUser ?
         <div className={styles.container}>
           <div className={styles.contacts}>
             <ChatBar/>
@@ -48,3 +48,4 @@ export default function Chat() {
     </div>
   )
 }
+export default Chat

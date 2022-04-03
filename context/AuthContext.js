@@ -15,6 +15,10 @@ export const AuthProvider = (props) => {
   const login = (username, password) => {
     if(username === "cristian" && password === "123456"){
       setCurrentUser(true)
+      return(true)
+    }else{
+      setCurrentUser(false)
+      return(false)
     }
   }
 
@@ -22,13 +26,16 @@ export const AuthProvider = (props) => {
 
   const value = {
     currentUser,
+    setCurrentUser,
     login,
     logout,
     signup
   };
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={value} displayName="AuthContext">
       {props.children}
     </AuthContext.Provider>
   )
 }
+
+export default AuthContext;

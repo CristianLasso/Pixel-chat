@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 
 import { useAuth } from '../../context/AuthContext';
 
-export default function Signup() {
+const Signup = () => {
 
   const { signup } = useAuth();
 
@@ -88,3 +88,4 @@ export default function Signup() {
         
   )
 }
+export default Signup
