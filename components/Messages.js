@@ -7,27 +7,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import Paper from '@mui/material/Paper';
 
 export default function Contacts() {
   const state = React.useContext(AppContext)
-
-  const [messages, setMessages] = React.useState([]);
-
-  React.useEffect(() => {
-    myFunction();
-    return () => {
-        setMessages([]); // This worked for me
-    };
-  }, []);
-
-  const myFunction = () => {
-    setMessages(state.messages);
-  }
     
     return(
         <List>
-          {messages.map((value, index) => {
+          {state.messages.map((value, index) => {
             const labelId = `label-${value}`;
             return (
               <ListItem
@@ -42,7 +28,7 @@ export default function Contacts() {
                       />
                     </ListItemAvatar>
                     <ListItemText
-                      sx={{backgroundColor: '#7878b3', paddingLeft: 2, minHeight: 40, height: 'auto', width: '80%', borderRadius: 2, color: '#FFFFFF'}}
+                      sx={{backgroundColor: '#7878b3', paddingLeft: 2, minHeight: 40, height: 'auto', width: '80%', borderRadius: 2, color: '#000000'}}
                     id={labelId} primary={value} />
                   </ListItemButton>
                 :

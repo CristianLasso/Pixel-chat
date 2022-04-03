@@ -1,10 +1,13 @@
 import '../styles/globals.css'
 import {AppContextWrapper} from '../context/AppContext'
+import { AuthProvider } from '../context/AuthContext';
 
 function MyApp({ Component, pageProps }) {
   return(
     <AppContextWrapper>
-      <Component {...pageProps} />
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </AppContextWrapper>
   )
 }

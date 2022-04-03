@@ -11,7 +11,10 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import Avatar from '@mui/material/Avatar';
 
+import { useAuth } from '../context/AuthContext';
+
 export default function ChatBar() {
+    const { logout } = useAuth();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -21,18 +24,14 @@ export default function ChatBar() {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
-
     const handleMenuClose = () => {
         setAnchorEl(null);
-
     };
 
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
+    const handleLogout = async () => {
+        setAnchorEl(null);
+        await logout();
+    }
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -53,7 +52,7 @@ export default function ChatBar() {
         >
         <MenuItem onClick={handleMenuClose}>Mi perfil</MenuItem>
         <Link href="/">
-            <MenuItem onClick={handleMenuClose}>Cerrar sesión</MenuItem>
+            <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
         </Link>
         </Menu>
     );
@@ -91,18 +90,6 @@ export default function ChatBar() {
                 aria-controls={menuId}
                 aria-haspopup="true"
                 onClick={handleProfileMenuOpen}
-                color="inherit"
-                >
-                <MoreVertIcon />
-                </IconButton>
-            </Box>
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
                 color="inherit"
                 >
                 <MoreVertIcon />

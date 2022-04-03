@@ -1,42 +1,38 @@
+import React, { useState, useContext } from 'react';
 import Link from 'next/link'
 import styles from '../styles/Login.module.css';
 import { styled } from '@mui/material/styles';
 
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import InputBase from '@mui/material/InputBase';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 
+import { useAuth } from '../context/AuthContext';
+
 export default function Login() {
 
-  const CssTextField = styled(TextField)({
-    '& label.Mui-focused': {
-      color: '#282845',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#282845',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#282845',
-      },
-      '&:hover fieldset': {
-        borderColor: '#585886',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#282845',
-      },
-    },
-  });
+  const { login } = useAuth();
+  const { currentUser } = useAuth();
 
-  const ColorButton = styled(Button)(({ theme }) => ({
-    color: '#FFFFFF',
-    backgroundColor: '#282845',
-    '&:hover': {
-      backgroundColor: '#585886',
-    },
-  }));
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUserName = e =>{
+    setUserName(e.target.value);
+    console.log(username);
+  }
+  const handlePassword = e =>{
+    setPassword(e.target.value);
+    console.log(password);
+  } 
+
+  const handleClick = async () =>{
+    login(username, password);
+    console.log('Usuario: ' + username + ' contraseña: ' + password);
+  }
 
   return (
     <Paper className={styles.background}>
@@ -50,15 +46,16 @@ export default function Login() {
           <Box>
             <form className={styles.form}>
               <Box className={styles.input}>
-                <CssTextField fullWidth type='username' label='Nombre de usuario' />
+                <TextField focused={false} fullWidth type='username' placeholder='Nombre de usuario' onChange={handleUserName} />
               </Box>
               <Box className={styles.input}>
-                <CssTextField fullWidth type='password' label='Contraseña' />
+                <TextField focused={false} fullWidth type='password' placeholder='Contraseña' onChange={handlePassword} />
               </Box>
               <Link href="/chat">
-                <ColorButton className={styles.button} variant="contained">Iniciar Sesión</ColorButton>
-              </Link> 
-              <p>No tienes una cuenta? <Link href="/signup">Registrate aquí</Link> </p>
+                <Button className={styles.button} variant="contained" onClick={handleClick}>Iniciar Sesión</Button>
+              </Link>
+              <p className={styles.text}>No tienes una cuenta?</p>
+              <Link href="/signup" className={styles.textSignup}>Registrate aquí</Link>
             </form>
             <div/>
           </Box>

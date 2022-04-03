@@ -8,7 +8,15 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 
+import { useAuth } from '../../context/AuthContext';
+
 export default function Signup() {
+
+  const { signup } = useAuth();
+
+  const handleSignup = async () =>{
+    await signup();
+  }
 
   const CssTextField = styled(TextField)({
     '& label.Mui-focused': {
@@ -68,9 +76,10 @@ export default function Signup() {
                 <CssTextField fullWidth type='password' label='Confirmar contraseña' />
               </Box>
               <Link href="/chat">
-                <ColorButton className={styles.button} variant="contained">Registrarme</ColorButton>
+                <ColorButton className={styles.button} variant="contained" onClick={handleSignup}>Registrarme</ColorButton>
               </Link>
-              <p>Ya tenías una cuenta? <Link href="/">Inicia sesión</Link> </p>
+              <p className={styles.text}>Ya tenías una cuenta?</p>
+              <Link href="/" className={styles.textLogin}>Inicia sesión</Link>
             </form>
             <div/>
           </Box>
