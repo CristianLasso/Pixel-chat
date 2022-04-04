@@ -36,7 +36,7 @@ export default function Contacts() {
                   <ListItemAvatar>
                     <Avatar
                       sx={{color: '#282845'}}
-                    />
+                    >{value.substring(0,2).toUpperCase()}</Avatar>
                   </ListItemAvatar>
                   <ListItemText id={labelId} primary={value} secondary={'Lore ipsum'} />
                   <p>{time}</p>

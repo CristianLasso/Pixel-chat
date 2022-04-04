@@ -2,8 +2,16 @@ import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+import MoodIcon from '@mui/icons-material/Mood';
+import SendIcon from '@mui/icons-material/Send';
+import { display } from '@mui/material/node_modules/@mui/system';
 
 export default function SearchBar() {
+
+  const handleClick = () => {
+    console.log('Click')
+  }
 
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -13,9 +21,9 @@ export default function SearchBar() {
           backgroundColor: alpha(theme.palette.common.white, 0.25),
         },
         marginTop: 10,
-        marginRight: theme.spacing(2),
+        marginRight: 0,
         marginLeft: 20,
-        width: '90%',
+        width: '100%',
       }));
       
       const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -39,6 +47,7 @@ export default function SearchBar() {
       }));
 
     return(
+      <div display='flex' flexDirection='row'>
         <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -49,6 +58,7 @@ export default function SearchBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
         </Search>
+      </div>
         
     )
 

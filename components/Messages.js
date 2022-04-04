@@ -25,7 +25,7 @@ export default function Contacts() {
                     <ListItemAvatar>
                       <Avatar
                         sx={{color: '#282845'}}
-                      />
+                      >{state.currentContact.substring(0,2).toUpperCase()}</Avatar>
                     </ListItemAvatar>
                     <ListItemText
                       sx={{backgroundColor: '#7878b3', paddingLeft: 2, minHeight: 40, height: 'auto', width: '80%', borderRadius: 2, color: '#000000'}}

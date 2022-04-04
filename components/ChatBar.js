@@ -65,7 +65,7 @@ export default function ChatBar() {
             <Toolbar>
                 <Avatar
                     sx={{color: '#282845'}}
-                />
+                >CR</Avatar>
             <Typography
                 variant="h6"
                 noWrap

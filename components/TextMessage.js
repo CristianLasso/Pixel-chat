@@ -21,7 +21,7 @@ export default function TextMessage() {
         state.setMessages([...messages, message]);
         console.log(message)
         console.log(state.messages)
-      }
+    }
 
     return(
         <div className={styles.container}>

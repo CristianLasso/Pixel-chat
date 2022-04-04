@@ -58,7 +58,7 @@ export default function ChatTitle() {
             <Toolbar>
                 <Avatar
                     sx={{color: '#282845'}}
-                />
+                >{state.currentContact.substring(0,2).toUpperCase()}</Avatar>
             <Typography
                 variant="h6"
                 noWrap
