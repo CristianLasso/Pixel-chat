@@ -28,7 +28,7 @@ export default function Contacts() {
                       >{state.currentContact.substring(0,2).toUpperCase()}</Avatar>
                     </ListItemAvatar>
                     <ListItemText
-                      sx={{backgroundColor: '#7878b3', paddingLeft: 2, minHeight: 40, height: 'auto', width: '80%', borderRadius: 2, color: '#000000'}}
+                      sx={{backgroundColor: '#7878b3', opacity: 0.85, paddingLeft: 2, minHeight: 40, height: 'auto', width: '80%', borderRadius: 2, color: '#000000'}}
                     id={labelId} primary={value} />
                   </ListItemButton>
                 :

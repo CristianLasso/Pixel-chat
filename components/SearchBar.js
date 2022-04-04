@@ -23,7 +23,7 @@ export default function SearchBar() {
         marginTop: 10,
         marginRight: 0,
         marginLeft: 20,
-        width: '100%',
+        width: '90%',
       }));
       
       const SearchIconWrapper = styled('div')(({ theme }) => ({

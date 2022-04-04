@@ -1,5 +1,6 @@
 import React, { useState, useContext} from 'react';
 import Link from 'next/link'
+import Head from 'next/head'
 import styles from '../styles/Login.module.css';
 
 import Typography from '@mui/material/Typography';
@@ -7,6 +8,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
+import Swal from 'sweetalert2';
 
 import AuthContext from "../context/AuthContext";
 
@@ -27,12 +29,25 @@ const Login = () => {
   } 
 
   const handleClick = async () =>{
-    await authState.login(username, password);
-    console.log('Usuario: ' + username + ' contraseña: ' + password);
+    if(username === '' || password === ''){
+      Swal.fire({
+        icon: 'error',
+        title: 'Ups...',
+        text: 'Parece que no completaste todos los campos, por favor llena el formulario completo'
+      })
+    }else{
+      await authState.login(username, password);
+      console.log('Usuario: ' + username + ' contraseña: ' + password);
+    }
   }
 
   return (
     <Paper className={styles.background}>
+      <Head>
+        <title>Pixel-Login</title>
+          <meta name="description" content="LoginPage" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Box className={styles.container}>
           <Box >
             

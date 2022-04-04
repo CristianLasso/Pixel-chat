@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link'
+import Head from 'next/head'
 import styles from '../../styles/Chat.module.css';
 
 import Contacts from '../../components/contacts';
@@ -19,6 +20,11 @@ const Chat = () => {
 
   return (
     <div>
+      <Head>
+        <title>Pixel-Chat</title>
+          <meta name="description" content="ChatPage" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       { authState.currentUser ?
         <div className={styles.container}>
           <div className={styles.contacts}>

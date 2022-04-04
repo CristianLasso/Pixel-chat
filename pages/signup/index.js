@@ -1,5 +1,6 @@
 import React, { useState, useContext} from 'react';
 import Link from 'next/link'
+import Head from 'next/head'
 import styles from '../../styles/Signup.module.css';
 import { styled } from '@mui/material/styles';
 
@@ -49,6 +50,11 @@ const Signup = () => {
 
   return (
     <Paper className={styles.background}>
+      <Head>
+        <title>Pixel-Signup</title>
+          <meta name="description" content="SignupPage" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Box className={styles.container}>
           <Box >
             
