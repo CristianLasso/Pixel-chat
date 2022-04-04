@@ -7,6 +7,14 @@ beforeEach(() => {
 })
 describe('Signup', () => {
 
+  it('renders a heading', () => {
+    const heading = screen.getByRole('heading', {
+      name: /Registrate!/i,
+    })
+
+    expect(heading).toBeInTheDocument()
+  })
+
   it('renders the form', () => {
 
     const name = screen.getAllByPlaceholderText(/Nombre/i)

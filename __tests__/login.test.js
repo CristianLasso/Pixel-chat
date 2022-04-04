@@ -7,6 +7,14 @@ beforeEach(() => {
 })
 describe('Login', () => {
 
+  it('renders a heading', () => {
+    const heading = screen.getByRole('heading', {
+      name: /Inicia Sesión!/i,
+    })
+
+    expect(heading).toBeInTheDocument()
+  })
+
   it('renders the form', () => {
 
     const username = screen.getByPlaceholderText(/Nombre de usuario/i)
